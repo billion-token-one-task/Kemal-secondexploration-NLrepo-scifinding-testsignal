@@ -1,0 +1,816 @@
+{
+  "benchmark": "NewtonBench",
+  "benchmark_root": "/home/ec2-user/benchmarks/NewtonBench",
+  "task_count_total": 324,
+  "pilot_task_count": 20,
+  "arms": [
+    {
+      "arm_id": "A_batched_dataset",
+      "label": "Batched Observations",
+      "description": "Spend the full experiment budget up front, then analyze only.",
+      "benchmark": "NewtonBench",
+      "budget": {
+        "experiment_budget": 10,
+        "turn_budget": 10
+      },
+      "notes": []
+    },
+    {
+      "arm_id": "B_interactive_observation",
+      "label": "Interactive Observation",
+      "description": "Standard benchmark behavior: experiment, observe, revise.",
+      "benchmark": "NewtonBench",
+      "budget": {
+        "experiment_budget": 10,
+        "turn_budget": 10
+      },
+      "notes": []
+    },
+    {
+      "arm_id": "C_quantitative_feedback",
+      "label": "Quantitative Feedback",
+      "description": "After each experiment, reveal current hypothesis error if provided.",
+      "benchmark": "NewtonBench",
+      "budget": {
+        "experiment_budget": 10,
+        "turn_budget": 10
+      },
+      "notes": []
+    },
+    {
+      "arm_id": "D_directional_feedback",
+      "label": "Directional Feedback",
+      "description": "After each experiment, reveal where the current hypothesis errs most.",
+      "benchmark": "NewtonBench",
+      "budget": {
+        "experiment_budget": 10,
+        "turn_budget": 10
+      },
+      "notes": []
+    }
+  ],
+  "tasks": [
+    {
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m6_underdamped_harmonic",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m7_malus_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m8_sound_speed",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m9_hooke_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0"
+    },
+    {
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0"
+    },
+    {
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0"
+    },
+    {
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0"
+    },
+    {
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0"
+    },
+    {
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0"
+    },
+    {
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0"
+    },
+    {
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0"
+    },
+    {
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "m0_gravity__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m0_gravity__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m0_gravity__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m0_gravity__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m10_be_distribution__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m10_be_distribution__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m10_be_distribution__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m10_be_distribution__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m11_heat_transfer__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m11_heat_transfer__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m11_heat_transfer__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m11_heat_transfer__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m1_coulomb_force__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m1_coulomb_force__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m1_coulomb_force__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m1_coulomb_force__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m2_magnetic_force__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m2_magnetic_force__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m2_magnetic_force__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m2_magnetic_force__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m3_fourier_law__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m3_fourier_law__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m3_fourier_law__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m3_fourier_law__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m4_snell_law__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m4_snell_law__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m4_snell_law__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m4_snell_law__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m5_radioactive_decay__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m5_radioactive_decay__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m5_radioactive_decay__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m5_radioactive_decay__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m6_underdamped_harmonic__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m6_underdamped_harmonic",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m6_underdamped_harmonic__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m6_underdamped_harmonic",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m6_underdamped_harmonic__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m6_underdamped_harmonic",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m6_underdamped_harmonic__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m6_underdamped_harmonic",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m7_malus_law__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m7_malus_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m7_malus_law__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m7_malus_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m7_malus_law__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m7_malus_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m7_malus_law__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m7_malus_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m8_sound_speed__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m8_sound_speed",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m8_sound_speed__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m8_sound_speed",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m8_sound_speed__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m8_sound_speed",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m8_sound_speed__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m8_sound_speed",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m9_hooke_law__easy__vanilla_equation__v0__A_batched_dataset",
+      "module": "m9_hooke_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m9_hooke_law__easy__vanilla_equation__v0__B_interactive_observation",
+      "module": "m9_hooke_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m9_hooke_law__easy__vanilla_equation__v0__C_quantitative_feedback",
+      "module": "m9_hooke_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m9_hooke_law__easy__vanilla_equation__v0__D_directional_feedback",
+      "module": "m9_hooke_law",
+      "difficulty": "easy",
+      "system": "vanilla_equation",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m0_gravity__easy__simple_system__v0__A_batched_dataset",
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m0_gravity__easy__simple_system__v0__B_interactive_observation",
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m0_gravity__easy__simple_system__v0__C_quantitative_feedback",
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m0_gravity__easy__simple_system__v0__D_directional_feedback",
+      "module": "m0_gravity",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m10_be_distribution__easy__simple_system__v0__A_batched_dataset",
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m10_be_distribution__easy__simple_system__v0__B_interactive_observation",
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m10_be_distribution__easy__simple_system__v0__C_quantitative_feedback",
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m10_be_distribution__easy__simple_system__v0__D_directional_feedback",
+      "module": "m10_be_distribution",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m11_heat_transfer__easy__simple_system__v0__A_batched_dataset",
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m11_heat_transfer__easy__simple_system__v0__B_interactive_observation",
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m11_heat_transfer__easy__simple_system__v0__C_quantitative_feedback",
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m11_heat_transfer__easy__simple_system__v0__D_directional_feedback",
+      "module": "m11_heat_transfer",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m1_coulomb_force__easy__simple_system__v0__A_batched_dataset",
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m1_coulomb_force__easy__simple_system__v0__B_interactive_observation",
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m1_coulomb_force__easy__simple_system__v0__C_quantitative_feedback",
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m1_coulomb_force__easy__simple_system__v0__D_directional_feedback",
+      "module": "m1_coulomb_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m2_magnetic_force__easy__simple_system__v0__A_batched_dataset",
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m2_magnetic_force__easy__simple_system__v0__B_interactive_observation",
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m2_magnetic_force__easy__simple_system__v0__C_quantitative_feedback",
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m2_magnetic_force__easy__simple_system__v0__D_directional_feedback",
+      "module": "m2_magnetic_force",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m3_fourier_law__easy__simple_system__v0__A_batched_dataset",
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m3_fourier_law__easy__simple_system__v0__B_interactive_observation",
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m3_fourier_law__easy__simple_system__v0__C_quantitative_feedback",
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m3_fourier_law__easy__simple_system__v0__D_directional_feedback",
+      "module": "m3_fourier_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m4_snell_law__easy__simple_system__v0__A_batched_dataset",
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m4_snell_law__easy__simple_system__v0__B_interactive_observation",
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m4_snell_law__easy__simple_system__v0__C_quantitative_feedback",
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m4_snell_law__easy__simple_system__v0__D_directional_feedback",
+      "module": "m4_snell_law",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    },
+    {
+      "run_id": "m5_radioactive_decay__easy__simple_system__v0__A_batched_dataset",
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "A_batched_dataset"
+    },
+    {
+      "run_id": "m5_radioactive_decay__easy__simple_system__v0__B_interactive_observation",
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "B_interactive_observation"
+    },
+    {
+      "run_id": "m5_radioactive_decay__easy__simple_system__v0__C_quantitative_feedback",
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "C_quantitative_feedback"
+    },
+    {
+      "run_id": "m5_radioactive_decay__easy__simple_system__v0__D_directional_feedback",
+      "module": "m5_radioactive_decay",
+      "difficulty": "easy",
+      "system": "simple_system",
+      "law_version": "v0",
+      "arm_id": "D_directional_feedback"
+    }
+  ]
+}

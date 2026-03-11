@@ -1,0 +1,1780 @@
+{
+  "benchmark": "NL2RepoBench",
+  "benchmark_root": "/home/ec2-user/benchmarks/NL2RepoBench",
+  "task_count_total": 104,
+  "pilot_task_count": 20,
+  "arms": [
+    {
+      "arm_id": "A_sparse_final_only",
+      "label": "Sparse Validation",
+      "description": "No hidden-test feedback until final submission.",
+      "benchmark": "NL2RepoBench",
+      "budget": {
+        "experiment_budget": "fixed",
+        "hidden_test_calls": 1
+      },
+      "notes": [
+        "Matches end-only validation.",
+        "Closest to official benchmark behavior."
+      ]
+    },
+    {
+      "arm_id": "B_staged_modules",
+      "label": "Staged Validation",
+      "description": "Expose grouped hidden tests only at stage checkpoints.",
+      "benchmark": "NL2RepoBench",
+      "budget": {
+        "experiment_budget": "fixed",
+        "hidden_test_calls": "bounded_by_stage_count"
+      },
+      "notes": []
+    },
+    {
+      "arm_id": "C_dense_any_test",
+      "label": "Dense Validation",
+      "description": "Allow validation against any hidden-test group at any time.",
+      "benchmark": "NL2RepoBench",
+      "budget": {
+        "experiment_budget": "fixed",
+        "hidden_test_calls": "agent_controlled"
+      },
+      "notes": []
+    },
+    {
+      "arm_id": "D_progressive_release",
+      "label": "Progressive Validation",
+      "description": "Gradually unlock more hidden-test groups over time.",
+      "benchmark": "NL2RepoBench",
+      "budget": {
+        "experiment_budget": "fixed",
+        "hidden_test_calls": "progressive"
+      },
+      "notes": []
+    }
+  ],
+  "tasks": [
+    {
+      "name": "aiofiles",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/aiofiles",
+      "test_case_count": 202,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/aiofiles:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "autopep8",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/autopep8",
+      "test_case_count": 564,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors test"
+      ],
+      "test_targets": [
+        "test"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/autopep8:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "box",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/box",
+      "test_case_count": 147,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors test"
+      ],
+      "test_targets": [
+        "test"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/box:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "coverage_shield",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/coverage_shield",
+      "test_case_count": 15,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/coverage_shield:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dictdatabase",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/dictdatabase",
+      "test_case_count": 594,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/dictdatabase:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flasky",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/flasky",
+      "test_case_count": 34,
+      "test_commands": [
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/flasky:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gitingest",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/gitingest",
+      "test_case_count": 133,
+      "test_commands": [
+        "pip install -e .",
+        "pip install gitpython",
+        "pip install loguru strenum eval-type-backport",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/gitingest:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ipytest",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/ipytest",
+      "test_case_count": 81,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ipytest:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "markupsafe",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/markupsafe",
+      "test_case_count": 78,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/markupsafe:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pandarallel",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/pandarallel",
+      "test_case_count": 217,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pandarallel:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pss",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/pss",
+      "test_case_count": 46,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors test"
+      ],
+      "test_targets": [
+        "test"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pss:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pyquery",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/pyquery",
+      "test_case_count": 73,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pyquery:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "python-fsutil",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/python-fsutil",
+      "test_case_count": 152,
+      "test_commands": [
+        "pip install  -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-fsutil:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "python-slugify",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/python-slugify",
+      "test_case_count": 82,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors test.py"
+      ],
+      "test_targets": [
+        "test.py"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-slugify:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test.py",
+          "targets": [
+            "test.py"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "retrying",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/retrying",
+      "test_case_count": 23,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors test_retrying.py"
+      ],
+      "test_targets": [
+        "test_retrying.py"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/retrying:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test_retrying.py",
+          "targets": [
+            "test_retrying.py"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sklearn",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/sklearn",
+      "test_case_count": 70,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/sklearn:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "synthetic",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/synthetic",
+      "test_case_count": 98,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/synthetic:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trimming",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/trimming",
+      "test_case_count": 10,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/trimming:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "verifiers",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/verifiers",
+      "test_case_count": 123,
+      "test_commands": [
+        "pip install  -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/verifiers:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ydata-profiling",
+      "task_dir": "/home/ec2-user/benchmarks/NL2RepoBench/test_files/ydata-profiling",
+      "test_case_count": 2182,
+      "test_commands": [
+        "pip install -e .",
+        "pytest --continue-on-collection-errors tests"
+      ],
+      "test_targets": [
+        "tests"
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ydata-profiling:1.0",
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "aiofiles__A_sparse_final_only",
+      "task_name": "aiofiles",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 202,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/aiofiles:1.0"
+    },
+    {
+      "run_id": "aiofiles__B_staged_modules",
+      "task_name": "aiofiles",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 202,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/aiofiles:1.0"
+    },
+    {
+      "run_id": "aiofiles__C_dense_any_test",
+      "task_name": "aiofiles",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 202,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/aiofiles:1.0"
+    },
+    {
+      "run_id": "aiofiles__D_progressive_release",
+      "task_name": "aiofiles",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 202,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/aiofiles:1.0"
+    },
+    {
+      "run_id": "autopep8__A_sparse_final_only",
+      "task_name": "autopep8",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 564,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/autopep8:1.0"
+    },
+    {
+      "run_id": "autopep8__B_staged_modules",
+      "task_name": "autopep8",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 564,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/autopep8:1.0"
+    },
+    {
+      "run_id": "autopep8__C_dense_any_test",
+      "task_name": "autopep8",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 564,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/autopep8:1.0"
+    },
+    {
+      "run_id": "autopep8__D_progressive_release",
+      "task_name": "autopep8",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 564,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/autopep8:1.0"
+    },
+    {
+      "run_id": "box__A_sparse_final_only",
+      "task_name": "box",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 147,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/box:1.0"
+    },
+    {
+      "run_id": "box__B_staged_modules",
+      "task_name": "box",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 147,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/box:1.0"
+    },
+    {
+      "run_id": "box__C_dense_any_test",
+      "task_name": "box",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 147,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/box:1.0"
+    },
+    {
+      "run_id": "box__D_progressive_release",
+      "task_name": "box",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 147,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/box:1.0"
+    },
+    {
+      "run_id": "coverage_shield__A_sparse_final_only",
+      "task_name": "coverage_shield",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 15,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/coverage_shield:1.0"
+    },
+    {
+      "run_id": "coverage_shield__B_staged_modules",
+      "task_name": "coverage_shield",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 15,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/coverage_shield:1.0"
+    },
+    {
+      "run_id": "coverage_shield__C_dense_any_test",
+      "task_name": "coverage_shield",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 15,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/coverage_shield:1.0"
+    },
+    {
+      "run_id": "coverage_shield__D_progressive_release",
+      "task_name": "coverage_shield",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 15,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/coverage_shield:1.0"
+    },
+    {
+      "run_id": "dictdatabase__A_sparse_final_only",
+      "task_name": "dictdatabase",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 594,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/dictdatabase:1.0"
+    },
+    {
+      "run_id": "dictdatabase__B_staged_modules",
+      "task_name": "dictdatabase",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 594,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/dictdatabase:1.0"
+    },
+    {
+      "run_id": "dictdatabase__C_dense_any_test",
+      "task_name": "dictdatabase",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 594,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/dictdatabase:1.0"
+    },
+    {
+      "run_id": "dictdatabase__D_progressive_release",
+      "task_name": "dictdatabase",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 594,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/dictdatabase:1.0"
+    },
+    {
+      "run_id": "flasky__A_sparse_final_only",
+      "task_name": "flasky",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 34,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/flasky:1.0"
+    },
+    {
+      "run_id": "flasky__B_staged_modules",
+      "task_name": "flasky",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 34,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/flasky:1.0"
+    },
+    {
+      "run_id": "flasky__C_dense_any_test",
+      "task_name": "flasky",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 34,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/flasky:1.0"
+    },
+    {
+      "run_id": "flasky__D_progressive_release",
+      "task_name": "flasky",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 34,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/flasky:1.0"
+    },
+    {
+      "run_id": "gitingest__A_sparse_final_only",
+      "task_name": "gitingest",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 133,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/gitingest:1.0"
+    },
+    {
+      "run_id": "gitingest__B_staged_modules",
+      "task_name": "gitingest",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 133,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/gitingest:1.0"
+    },
+    {
+      "run_id": "gitingest__C_dense_any_test",
+      "task_name": "gitingest",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 133,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/gitingest:1.0"
+    },
+    {
+      "run_id": "gitingest__D_progressive_release",
+      "task_name": "gitingest",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 133,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/gitingest:1.0"
+    },
+    {
+      "run_id": "ipytest__A_sparse_final_only",
+      "task_name": "ipytest",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 81,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ipytest:1.0"
+    },
+    {
+      "run_id": "ipytest__B_staged_modules",
+      "task_name": "ipytest",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 81,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ipytest:1.0"
+    },
+    {
+      "run_id": "ipytest__C_dense_any_test",
+      "task_name": "ipytest",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 81,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ipytest:1.0"
+    },
+    {
+      "run_id": "ipytest__D_progressive_release",
+      "task_name": "ipytest",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 81,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ipytest:1.0"
+    },
+    {
+      "run_id": "markupsafe__A_sparse_final_only",
+      "task_name": "markupsafe",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 78,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/markupsafe:1.0"
+    },
+    {
+      "run_id": "markupsafe__B_staged_modules",
+      "task_name": "markupsafe",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 78,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/markupsafe:1.0"
+    },
+    {
+      "run_id": "markupsafe__C_dense_any_test",
+      "task_name": "markupsafe",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 78,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/markupsafe:1.0"
+    },
+    {
+      "run_id": "markupsafe__D_progressive_release",
+      "task_name": "markupsafe",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 78,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/markupsafe:1.0"
+    },
+    {
+      "run_id": "pandarallel__A_sparse_final_only",
+      "task_name": "pandarallel",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 217,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pandarallel:1.0"
+    },
+    {
+      "run_id": "pandarallel__B_staged_modules",
+      "task_name": "pandarallel",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 217,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pandarallel:1.0"
+    },
+    {
+      "run_id": "pandarallel__C_dense_any_test",
+      "task_name": "pandarallel",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 217,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pandarallel:1.0"
+    },
+    {
+      "run_id": "pandarallel__D_progressive_release",
+      "task_name": "pandarallel",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 217,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pandarallel:1.0"
+    },
+    {
+      "run_id": "pss__A_sparse_final_only",
+      "task_name": "pss",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 46,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pss:1.0"
+    },
+    {
+      "run_id": "pss__B_staged_modules",
+      "task_name": "pss",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 46,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pss:1.0"
+    },
+    {
+      "run_id": "pss__C_dense_any_test",
+      "task_name": "pss",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 46,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pss:1.0"
+    },
+    {
+      "run_id": "pss__D_progressive_release",
+      "task_name": "pss",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 46,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test",
+          "targets": [
+            "test"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pss:1.0"
+    },
+    {
+      "run_id": "pyquery__A_sparse_final_only",
+      "task_name": "pyquery",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 73,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pyquery:1.0"
+    },
+    {
+      "run_id": "pyquery__B_staged_modules",
+      "task_name": "pyquery",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 73,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pyquery:1.0"
+    },
+    {
+      "run_id": "pyquery__C_dense_any_test",
+      "task_name": "pyquery",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 73,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pyquery:1.0"
+    },
+    {
+      "run_id": "pyquery__D_progressive_release",
+      "task_name": "pyquery",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 73,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/pyquery:1.0"
+    },
+    {
+      "run_id": "python-fsutil__A_sparse_final_only",
+      "task_name": "python-fsutil",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 152,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-fsutil:1.0"
+    },
+    {
+      "run_id": "python-fsutil__B_staged_modules",
+      "task_name": "python-fsutil",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 152,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-fsutil:1.0"
+    },
+    {
+      "run_id": "python-fsutil__C_dense_any_test",
+      "task_name": "python-fsutil",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 152,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-fsutil:1.0"
+    },
+    {
+      "run_id": "python-fsutil__D_progressive_release",
+      "task_name": "python-fsutil",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 152,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-fsutil:1.0"
+    },
+    {
+      "run_id": "python-slugify__A_sparse_final_only",
+      "task_name": "python-slugify",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 82,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test.py",
+          "targets": [
+            "test.py"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-slugify:1.0"
+    },
+    {
+      "run_id": "python-slugify__B_staged_modules",
+      "task_name": "python-slugify",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 82,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test.py",
+          "targets": [
+            "test.py"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-slugify:1.0"
+    },
+    {
+      "run_id": "python-slugify__C_dense_any_test",
+      "task_name": "python-slugify",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 82,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test.py",
+          "targets": [
+            "test.py"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-slugify:1.0"
+    },
+    {
+      "run_id": "python-slugify__D_progressive_release",
+      "task_name": "python-slugify",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 82,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test.py",
+          "targets": [
+            "test.py"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/python-slugify:1.0"
+    },
+    {
+      "run_id": "retrying__A_sparse_final_only",
+      "task_name": "retrying",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 23,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test_retrying.py",
+          "targets": [
+            "test_retrying.py"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/retrying:1.0"
+    },
+    {
+      "run_id": "retrying__B_staged_modules",
+      "task_name": "retrying",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 23,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test_retrying.py",
+          "targets": [
+            "test_retrying.py"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/retrying:1.0"
+    },
+    {
+      "run_id": "retrying__C_dense_any_test",
+      "task_name": "retrying",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 23,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test_retrying.py",
+          "targets": [
+            "test_retrying.py"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/retrying:1.0"
+    },
+    {
+      "run_id": "retrying__D_progressive_release",
+      "task_name": "retrying",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 23,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "test_retrying.py",
+          "targets": [
+            "test_retrying.py"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/retrying:1.0"
+    },
+    {
+      "run_id": "sklearn__A_sparse_final_only",
+      "task_name": "sklearn",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 70,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/sklearn:1.0"
+    },
+    {
+      "run_id": "sklearn__B_staged_modules",
+      "task_name": "sklearn",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 70,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/sklearn:1.0"
+    },
+    {
+      "run_id": "sklearn__C_dense_any_test",
+      "task_name": "sklearn",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 70,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/sklearn:1.0"
+    },
+    {
+      "run_id": "sklearn__D_progressive_release",
+      "task_name": "sklearn",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 70,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/sklearn:1.0"
+    },
+    {
+      "run_id": "synthetic__A_sparse_final_only",
+      "task_name": "synthetic",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 98,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/synthetic:1.0"
+    },
+    {
+      "run_id": "synthetic__B_staged_modules",
+      "task_name": "synthetic",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 98,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/synthetic:1.0"
+    },
+    {
+      "run_id": "synthetic__C_dense_any_test",
+      "task_name": "synthetic",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 98,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/synthetic:1.0"
+    },
+    {
+      "run_id": "synthetic__D_progressive_release",
+      "task_name": "synthetic",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 98,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/synthetic:1.0"
+    },
+    {
+      "run_id": "trimming__A_sparse_final_only",
+      "task_name": "trimming",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 10,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/trimming:1.0"
+    },
+    {
+      "run_id": "trimming__B_staged_modules",
+      "task_name": "trimming",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 10,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/trimming:1.0"
+    },
+    {
+      "run_id": "trimming__C_dense_any_test",
+      "task_name": "trimming",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 10,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/trimming:1.0"
+    },
+    {
+      "run_id": "trimming__D_progressive_release",
+      "task_name": "trimming",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 10,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/trimming:1.0"
+    },
+    {
+      "run_id": "verifiers__A_sparse_final_only",
+      "task_name": "verifiers",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 123,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/verifiers:1.0"
+    },
+    {
+      "run_id": "verifiers__B_staged_modules",
+      "task_name": "verifiers",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 123,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/verifiers:1.0"
+    },
+    {
+      "run_id": "verifiers__C_dense_any_test",
+      "task_name": "verifiers",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 123,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/verifiers:1.0"
+    },
+    {
+      "run_id": "verifiers__D_progressive_release",
+      "task_name": "verifiers",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 123,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/verifiers:1.0"
+    },
+    {
+      "run_id": "ydata-profiling__A_sparse_final_only",
+      "task_name": "ydata-profiling",
+      "arm_id": "A_sparse_final_only",
+      "test_case_count": 2182,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ydata-profiling:1.0"
+    },
+    {
+      "run_id": "ydata-profiling__B_staged_modules",
+      "task_name": "ydata-profiling",
+      "arm_id": "B_staged_modules",
+      "test_case_count": 2182,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ydata-profiling:1.0"
+    },
+    {
+      "run_id": "ydata-profiling__C_dense_any_test",
+      "task_name": "ydata-profiling",
+      "arm_id": "C_dense_any_test",
+      "test_case_count": 2182,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ydata-profiling:1.0"
+    },
+    {
+      "run_id": "ydata-profiling__D_progressive_release",
+      "task_name": "ydata-profiling",
+      "arm_id": "D_progressive_release",
+      "test_case_count": 2182,
+      "stage_groups": [
+        {
+          "group_id": "g1",
+          "label": "tests",
+          "targets": [
+            "tests"
+          ]
+        }
+      ],
+      "image": "ghcr.io/multimodal-art-projection/nl2repobench/ydata-profiling:1.0"
+    }
+  ]
+}
